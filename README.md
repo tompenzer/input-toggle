@@ -3,6 +3,9 @@ jQuery component to toggle classes or attributes on elements based on the
 value(s) of a form input, or of a set of inputs that share a name (i.e.
 checkboxes, radio buttons).
 
+If there are any features you would like to see, or things you don't believe to
+be working correctly, don't hesitate to open an issue on the GitHub project page.
+
 - Repository: https://github.com/tompenzer/input-toggle
 - NPM Package: https://www.npmjs.com/package/input-toggle
 
