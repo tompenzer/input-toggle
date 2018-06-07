@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en_US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>InputToggle Demo</title>
+
+    <style>
+    .hide {
+        visibility: hidden;
+    }
+    </style>
+</head>
+<body>
+    <form>
+      <fieldset>
+        <label style="margin-right: 45px;">
+          Do the thing
+          <input type="checkbox" name="the_checkbox" value="1">
+        </label>
+
+        <label style="margin-right: 45px;">
+          Do some of the thing
+          <input type="checkbox" name="the_checkbox" value="2">
+        </label>
+
+        <label>
+          Don't do the thing
+          <input type="checkbox" name="the_checkbox" value="0">
+        </label>
+
+        <div data-input-toggle="the_checkbox"
+          data-input-toggle-active-value='["1","2"]'
+          data-input-toggle-inactive-class="hide">
+          Content visibility toggled with a class, shown when first two options checked
+        </div>
+
+        <select name="the_select"
+          data-input-toggle="the_checkbox"
+          data-input-toggle-active-value="1"
+          data-input-toggle-inactive-attribute="disabled=disabled">
+          <option>Select disabled unless first option checked</option>
+          <option>disabled attribute gets toggled</option>
+        </select>
+      </fieldset>
+
+      <br /><br />
+
+      <label>Favorite color:
+        <select name="color">
+          <option>blue</option>
+          <option>red</option>
+          <option>yellow</option>
+          <option>fuchsia</option>
+        </select>
+      </label>
+
+      <div data-input-toggle="color"
+        data-input-toggle-active-value='["blue","fuchsia"]'
+        data-input-toggle-inactive-class="hide">
+        Content visibility toggled with a class, shown when blue or fuchsia
+      </div>
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="input-toggle.js"></script>
+    <script type="text/javascript">InputToggle.init();</script>
+</body>
+</html>
