@@ -1,7 +1,8 @@
 # input-toggle
 jQuery component to toggle classes or attributes on elements based on the
 value(s) of a form input, or of a set of inputs that share a name (i.e.
-checkboxes, radio buttons).
+checkboxes, radio buttons), being equal or not equal to a value or among or not
+among a set of possible values.
 
 If there are any features you would like to see, or things you don't believe to
 be working correctly, don't hesitate to open an issue on the GitHub project page.
