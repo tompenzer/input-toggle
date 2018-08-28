@@ -107,4 +107,4 @@ steps to configure the toggle:
 ## Example
 A demo of this library is available here:
 
-https://jsfiddle.net/9v1oragu/
+https://jsfiddle.net/wdbsxkaq/

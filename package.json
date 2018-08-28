@@ -1,6 +1,6 @@
 {
     "name": "input-toggle",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "Tom Penzer thepenzone.com github.com/tompenzer",
     "description": "jQuery component to toggle classes or attributes on elements based on the value(s) of an input",
     "keywords": "jquery jquery-plugin ecosystem:jquery input value toggle class attribute",
