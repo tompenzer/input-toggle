@@ -86,7 +86,7 @@
  * @author Tom Penzer thepenzone.com
  * @dependency jQuery v1.4 or later
  **/
-InputToggle = {
+var InputToggle = InputToggle || {
   'attributes': {
     'toggled':                'data-input-toggle',
     'activeValue':            'data-input-toggle-active-value',
@@ -103,7 +103,7 @@ InputToggle = {
       toggles = {};
 
     // Set scope of init to passed element reference if valid, else use document scope.
-    if (typeof scope !== 'undefined' &&
+    if (scope &&
     	$(scope).length > 0
     ) {
     	$scope = $(scope);
@@ -161,24 +161,24 @@ InputToggle = {
   	if (
     	(
       	($toggle.is('[' + this.attributes.activeValue + ']') &&
-      		$toggle.attr(this.attributes.activeValue).toString().length > 0
+      		$toggle.attr(this.attributes.activeValue).length > 0
         ) ||
     		($toggle.is('[' + this.attributes.inactiveValue + ']') &&
-        	$toggle.attr(this.attributes.inactiveValue).toString().length > 0
+        	$toggle.attr(this.attributes.inactiveValue).length > 0
         )
       ) &&
       (
       	($toggle.is('[' + this.attributes.activeClass + ']') &&
-      		$toggle.attr(this.attributes.activeClass).toString().length > 0
+      		$toggle.attr(this.attributes.activeClass).length > 0
         ) ||
       	($toggle.is('[' + this.attributes.inactiveClass + ']') &&
-      		$toggle.attr(this.attributes.inactiveClass).toString().length > 0
+      		$toggle.attr(this.attributes.inactiveClass).length > 0
         ) ||
         ($toggle.is('[' + this.attributes.activeAttribute + ']') &&
-      		$toggle.attr(this.attributes.activeAttribute).toString().length > 0
+      		$toggle.attr(this.attributes.activeAttribute).length > 0
         ) ||
         ($toggle.is('[' + this.attributes.inactiveAttribute + ']') &&
-      		$toggle.attr(this.attributes.inactiveAttribute).toString().length > 0
+      		$toggle.attr(this.attributes.inactiveAttribute).length > 0
         )
       )
     ) {
@@ -233,7 +233,7 @@ InputToggle = {
       }
     }
 
-    return '';
+    return false;
   },
   'hasInputValues': function(inputValues, testValues) {
     if (! $.isArray(testValues)) {
@@ -254,9 +254,9 @@ InputToggle = {
     	activeValues = _this.getAttributeValue($toggle, _this.attributes.activeValue),
     	inactiveValues = _this.getAttributeValue($toggle, _this.attributes.inactiveValue);
 
-		if (activeValues.toString().length > 0) {
+		if (activeValues) {
     	return _this.hasInputValues(inputValues, activeValues);
-    } else if (inactiveValues.toString().length > 0) {
+    } else if (inactiveValues) {
     	// Switch to default true, false if match for inactive value(s).
       return ! _this.hasInputValues(inputValues, inactiveValues);
     }
@@ -269,19 +269,19 @@ InputToggle = {
     	inactiveClass = $toggle.attr(_this.attributes.inactiveClass) || '';
 
     if (isActive) {
-    	if (activeClass.toString().length > 0) {
+    	if (activeClass.length > 0) {
       	$toggle.addClass(activeClass);
       }
 
-      if (inactiveClass.toString().length > 0) {
+      if (inactiveClass.length > 0) {
       	$toggle.removeClass(inactiveClass);
       }
     } else {
-    	if (activeClass.toString().length > 0) {
+    	if (activeClass.length > 0) {
       	$toggle.removeClass(activeClass);
       }
 
-      if (inactiveClass.toString().length > 0) {
+      if (inactiveClass.length > 0) {
       	$toggle.addClass(inactiveClass);
       }
     }
@@ -292,7 +292,7 @@ InputToggle = {
       toggleAttributeValue = '';
 
     if ($toggle.is('[' + attribute + ']')) {
-    	toggleAttribute = $toggle.attr(attribute).toString();
+    	toggleAttribute = $toggle.attr(attribute);
       splitEqual = toggleAttribute.split('=');
 
     	// If there's an = sign, split into attribute name and value.
